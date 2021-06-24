@@ -19,6 +19,7 @@
  * macro [-l] <infile[.mac]> [<outfile[.asm]>] [<outfile[.lst]>]
  * 
  */
+
 /*
  * doc r0.0
  * 
@@ -122,12 +123,12 @@
  */
 /* headers */
 
-#include <stdio.h>
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
-#include "macro.h"
 #include <stdlib.h>
+#include <stdio.h>
+#include "macro.h"
 
 /* because its not in the string.h file */
 #ifndef CPM
@@ -973,7 +974,7 @@ Include (FILE * in)
 next:
 
   New = fopen (mylbuff, "r");
-  if (!New)
+  if (New == 0)
     {
       printf ("Can't open the file \"%s\"\n", mylbuff);
       fprintf (listfile, "Bad include directive\n%s\n", buff);
