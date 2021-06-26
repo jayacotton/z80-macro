@@ -23,7 +23,7 @@ main (int argc, char *argv[])
   char listfilename[80];
   char outfilename[80];
   char filename[80];
-
+char *p;
 #ifndef CPM
   extern int level;
   level = 0;
@@ -43,7 +43,12 @@ main (int argc, char *argv[])
   memset (filename, 0, 80);
   memset (outfilename, 0, 80);
   memset (listfilename, 0, 80);
-
+p = argv[1];
+while(*p != 0){
+	if(*p == ' ') *p = '\0';
+	p++;
+}
+printf("%s\n",argv[1]);
   strcpy (filename, argv[1]);
   strcpy (outfilename, argv[1]);
   strcpy (listfilename, argv[1]);
